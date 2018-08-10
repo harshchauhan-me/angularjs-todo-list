@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Todo List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body ng-controller="todoCtrl">
+
+    <div>
+        <h2>{{message}}</h2>
+    </div>
+
+    <div>
+        <table>
+            <tr ng-repeat="item in todoArray track by $index">
+                <td>
+                    <input type="checkbox" ng-model="itemCompleted" ng-click="checkList(itemCompleted)"> &nbsp;&nbsp;
+                    <span ng-class="checkList(itemCompleted)">{{item}}</span>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div>
+        Add Item:
+        <input type="text" name="todo" placeholder="Item" ng-model="todo"> &nbsp;&nbsp;
+        <input type="button" value="Add" ng-click="addItemToList()">
+    </div>
+
+    <!-- angular scripts -->
+    <script src="scripts/angular.js"></script>
+
+    <!-- app scripts -->
+    <script src="main.js"></script>
+</body>
+
+</html>
